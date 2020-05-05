@@ -3,6 +3,8 @@ package de.hsrm.mi.web.skief001.bratboerse;
 import java.time.LocalDate;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.DateTimeFormat.ISO;
 
 public class BratenDaten {
 
@@ -10,6 +12,7 @@ public class BratenDaten {
     
     private String name;
     private String abholort;
+    @DateTimeFormat(iso=ISO.TIME)
     private LocalDate haltbarbis;
     private String beschreibung;
 
@@ -39,7 +42,10 @@ public class BratenDaten {
     }
 
     public String getHaltbarbis() {
-        return haltbarbis.toString();
+        try {
+            return haltbarbis.toString();
+        } catch (NullPointerException e) {}
+        return "";
     }
 
     public void setHaltbarbis(String haltbarbis) {

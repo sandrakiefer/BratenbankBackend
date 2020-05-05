@@ -26,7 +26,6 @@ public class BratenAngebotController {
         lst.add(new BratenDaten("Friedfert", "Arensch", LocalDate.of(2020, 5, 31), "Palatschinken aus Öl"));
         lst.add(new BratenDaten("Joghurta", "Diedelingen", LocalDate.of(2020, 5, 7), "frischer Gummibärbraten"));
         m.addAttribute("angebote", lst);
-        //m.addAttribute("angebote", new ArrayList<BratenDaten>());
     }
 
     @GetMapping("/angebot")
