@@ -21,10 +21,12 @@ public class LoginController {
     @PostMapping("/login")
     public String login_post(Model m, @RequestParam String username, @RequestParam String password) {
         String correct = username + username.length();
-        if (!password.equals(correct)) {
+        if (password.equals(correct)) {
+            return "redirect:/angebot";
+        } else {
             m.addAttribute("hinweis", String.format("Hinweis: Das korrekte Passwort für %s ist %s, nicht %s!", username, correct, password));
+            return "login";
         }
-        return "login";
     }
 
 }

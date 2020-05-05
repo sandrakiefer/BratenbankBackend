@@ -1,8 +1,12 @@
 package de.hsrm.mi.web.skief001.bratboerse;
 
 import java.time.LocalDate;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class BratenDaten {
+
+    Logger logger = LoggerFactory.getLogger(BratenDaten.class);
     
     private String name;
     private String abholort;
@@ -15,6 +19,8 @@ public class BratenDaten {
         this.haltbarbis = haltbarbis;
         this.beschreibung = beschreibung;
     }
+
+    public BratenDaten() {}
 
     public String getName() {
         return name;
@@ -32,12 +38,12 @@ public class BratenDaten {
         this.abholort = abholort;
     }
 
-    public LocalDate getHaltbarbis() {
-        return haltbarbis;
+    public String getHaltbarbis() {
+        return haltbarbis.toString();
     }
 
-    public void setHaltbarbis(LocalDate haltbarbis) {
-        this.haltbarbis = haltbarbis;
+    public void setHaltbarbis(String haltbarbis) {
+        this.haltbarbis = LocalDate.parse(haltbarbis);
     }
 
     public String getBeschreibung() {

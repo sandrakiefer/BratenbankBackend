@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <title>Bratenbank</title>
+    </head>
+    <body>
+        <h1>Braten erfassen und bearbeiten</h1>
+        <div class="col-xs-4">
+            <form th:action="@{/angebot/neu}" th:method=POST th:object="${angebotform}">
+                <div class="form-group">
+                    <label for="name">Anbierter</label>
+                    <input type="text" th:field="*{name}" class="form-control" name="name" placeholder="Anbieter eingeben"/>
+                </div>
+                <div class="form-group">
+                    <label for="abholort">Abholort</label>
+                    <input type="text" th:field="*{abholort}" class="form-control" name="abholort" placeholder="Abholort eingeben"/>
+                </div>
+                <div class="form-group">
+                    <label for="beschreibung">Beschreibung</label>
+                    <input type="text" th:field="*{beschreibung}" class="form-control" name="beschreibung" placeholder="Beschreibung eingeben"/>
+                </div>
+                <div class="form-group">
+                    <label for="haltbarbis">Haltbar bis</label>
+                    <input type="date" th:field="*{haltbarbis}" class="form-control" name="haltbarbis"/>
+                </div>
+                <button type="submit" class="btn btn-primary">Braten speichern</button>
+            </form>
+        </div>
+    </body>
+</html>

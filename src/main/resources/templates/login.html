@@ -2,33 +2,24 @@
 <html xmlns:th="http://www.thymeleaf.org">
     <head>
         <meta charset="UTF-8" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
         <title>Bratenbank</title>
     </head>
     <body>
-        <h3>Login</h3>
-        <p>
-            <span th:text="${hinweis}"></span>
-        </p>
-        <form action="" method=POST>
-            <table>
-                <tr>
-                    <td>
-                        <label for="username">Username</label>
-                    </td>
-                    <td>
-                        <input type="text" name="username" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <label for="password">Passwort</label>
-                    </td>
-                    <td>
-                        <input type="text" name="password" />
-                    </td>
-                </tr>
-            </table>
-            <input type="submit" value="OK" /><br>
-        </form>
+        <div class="col-xs-4">
+            <h1>Login</h1>
+            <p th:text="${hinweis}"></p>
+            <form action="" method=POST>
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" class="form-control" name="username" placeholder="Unsername eingeben"/>
+                </div>
+                <div class="form-group">
+                    <label for="password">Passwort</label>
+                    <input type="text" class="form-control" name="password" placeholder="Passwort eingeben"/>
+                </div>
+                <button type="submit" class="btn btn-primary">OK</button>
+            </form>
+        </div>
     </body>
 </html>
