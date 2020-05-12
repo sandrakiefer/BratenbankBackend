@@ -10,20 +10,24 @@
         <div class="col-xs-4">
             <form th:action="@{/angebot/neu}" th:method=POST th:object="${angebotform}">
                 <div class="form-group">
-                    <label for="name">Anbierter</label>
-                    <input type="text" th:field="*{name}" class="form-control" name="name" placeholder="Anbieter eingeben"/>
+                    <label>Anbieter</label>
+                    <input type="text" th:field="*{name}" class="form-control" placeholder="Anbieter eingeben"/>
+                    <p th:if="${#fields.hasErrors('name')}">Fehler</p>
                 </div>
                 <div class="form-group">
-                    <label for="abholort">Abholort</label>
-                    <input type="text" th:field="*{abholort}" class="form-control" name="abholort" placeholder="Abholort eingeben"/>
+                    <label>Abholort</label>
+                    <input type="text" th:field="*{abholort}" th:errorclass="fehler" class="form-control" placeholder="Abholort eingeben"/>
+                    <p th:if="${#fields.hasErrors('abholort')}">Fehler</p>
                 </div>
                 <div class="form-group">
-                    <label for="beschreibung">Beschreibung</label>
-                    <input type="text" th:field="*{beschreibung}" class="form-control" name="beschreibung" placeholder="Beschreibung eingeben"/>
+                    <label>Beschreibung</label>
+                    <input type="text" th:field="*{beschreibung}" th:errorclass="fehler" class="form-control" placeholder="Beschreibung eingeben"/>
+                    <p th:if="${#fields.hasErrors('beschreibung')}">Fehler</p>
                 </div>
                 <div class="form-group">
-                    <label for="haltbarbis">Haltbar bis</label>
-                    <input type="date" th:field="*{haltbarbis}" class="form-control" name="haltbarbis"/>
+                    <label>Haltbar bis</label>
+                    <input type="date" th:field="*{haltbarbis}" th:errorclass="fehler" class="form-control"/>
+                    <p th:if="${#fields.hasErrors('haltbarbis')}">Fehler</p>
                 </div>
                 <button type="submit" class="btn btn-primary">Braten speichern</button>
             </form>
