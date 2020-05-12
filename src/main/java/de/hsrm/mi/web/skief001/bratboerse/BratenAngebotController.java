@@ -43,8 +43,6 @@ public class BratenAngebotController {
     @PostMapping("/angebot/neu")
     public String postFrom(Model m, @Valid @ModelAttribute("angebotform") BratenDaten angebotform, BindingResult bratendatenError) {
         if (bratendatenError.hasErrors()) {
-            //m.addAttribute("angebotform", angebotform);
-            logger.info(bratendatenError.getFieldError("name").getDefaultMessage());
             return "angebote/bearbeiten";
         }
         angebote.add(angebotform);
