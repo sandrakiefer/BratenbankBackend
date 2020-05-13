@@ -23,9 +23,9 @@ public class BratenAngebotController {
     
     @ModelAttribute("angebote")
     public void initListe(Model m) {
-        angebote.add(new BratenDaten("Jöndhard", "Vollradisroda", LocalDate.of(2020, 5, 6), "leckerer Grünkohlbraten"));
-        angebote.add(new BratenDaten("Friedfert", "Arensch", LocalDate.of(2020, 5, 31), "Palatschinken aus Öl"));
-        angebote.add(new BratenDaten("Joghurta", "Diedelingen", LocalDate.of(2020, 5, 7), "frischer Gummibärbraten"));
+        angebote.add(new BratenDaten("Jöndhard", "Vollradisroda", LocalDate.of(2020, 5, 6), "leckerer Grünkohlbraten", 50));
+        angebote.add(new BratenDaten("Friedfert", "Arensch", LocalDate.of(2020, 5, 31), "Palatschinken aus Öl", 0));
+        angebote.add(new BratenDaten("Joghurta", "Diedelingen", LocalDate.of(2020, 5, 7), "frischer Gummibärbraten", 25));
         m.addAttribute("angebote", angebote);
     }
 

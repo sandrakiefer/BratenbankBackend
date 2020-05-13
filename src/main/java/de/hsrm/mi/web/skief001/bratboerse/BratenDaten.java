@@ -29,13 +29,19 @@ public class BratenDaten {
     @NotNull(message = "Beschreibung muss angegeben werden")
     private String beschreibung;
 
+    private int[] selectboxes = {0, 25, 50, 75, 100};
+
+    @NotNull(message = "Vegetarizität muss angegeben werden")
+    private int vgrad;
+
     Logger logger = LoggerFactory.getLogger(BratenDaten.class);
 
-    public BratenDaten(String name, String abholort, LocalDate haltbarbis, String beschreibung) {
+    public BratenDaten(String name, String abholort, LocalDate haltbarbis, String beschreibung, int vgrad) {
         this.name = name;
         this.abholort = abholort;
         this.haltbarbis = haltbarbis;
         this.beschreibung = beschreibung;
+        this.vgrad = vgrad;
     }
 
     public BratenDaten() {}
@@ -70,6 +76,18 @@ public class BratenDaten {
 
     public void setBeschreibung(String beschreibung) {
         this.beschreibung = beschreibung;
+    }
+
+    public int getVgrad() {
+        return vgrad;
+    }
+
+    public void setVgrad(int vgrad) {
+        this.vgrad = vgrad;
+    }
+
+    public int[] getSelectboxes() {
+        return selectboxes;
     }
 
     @Override

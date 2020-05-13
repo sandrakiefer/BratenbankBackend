@@ -26,6 +26,13 @@
                     <p th:if="${#fields.hasErrors('beschreibung')}" class="errortext">Beschreibung darf nicht länger als 80 Zeichen haben</p>
                 </div>
                 <div class="form-group">
+                    <label>Vegetarizität</label>
+                    <select th:field="*{vgrad}" th:errorclass="error" class="form-control">
+                        <option th:each="sb: *{selectboxes}" th:value="${sb}" th:text="|${sb}%|"/>
+                      </select>
+                      <p th:if="${#fields.hasErrors('vgrad')}" class="errortext">Vegetarizität muss angegeben werden</p>
+                </div>
+                <div class="form-group">
                     <label>Haltbar bis</label>
                     <input type="date" th:field="*{haltbarbis}" th:errorclass="error" class="form-control"/>
                     <p th:if="${#fields.hasErrors('haltbarbis')}" class="errortext">Datum muss in der Zukunft legen (kein abgelaufenen Produkte)</p>
