@@ -3,6 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="/validerror.css"/>
         <title>Bratenbank</title>
     </head>
     <body>
@@ -11,23 +12,23 @@
             <form th:action="@{/angebot/neu}" th:method=POST th:object="${angebotform}">
                 <div class="form-group">
                     <label>Anbieter</label>
-                    <input type="text" th:field="*{name}" class="form-control" placeholder="Anbieter eingeben"/>
-                    <p th:if="${#fields.hasErrors('name')}">Fehler</p>
+                    <input type="text" th:field="*{name}" th:errorclass="error" class="form-control" placeholder="Anbieter eingeben"/>
+                    <p th:if="${#fields.hasErrors('name')}" class="errortext">Name muss mindestens 3 Zeichen und maximal 80 Zeichen haben</p>
                 </div>
                 <div class="form-group">
                     <label>Abholort</label>
-                    <input type="text" th:field="*{abholort}" th:errorclass="fehler" class="form-control" placeholder="Abholort eingeben"/>
-                    <p th:if="${#fields.hasErrors('abholort')}">Fehler</p>
+                    <input type="text" th:field="*{abholort}" th:errorclass="error" class="form-control" placeholder="Abholort eingeben"/>
+                    <p th:if="${#fields.hasErrors('abholort')}" class="errortext">ungültiger Abholort</p>
                 </div>
                 <div class="form-group">
                     <label>Beschreibung</label>
-                    <input type="text" th:field="*{beschreibung}" th:errorclass="fehler" class="form-control" placeholder="Beschreibung eingeben"/>
-                    <p th:if="${#fields.hasErrors('beschreibung')}">Fehler</p>
+                    <input type="text" th:field="*{beschreibung}" th:errorclass="error" class="form-control" placeholder="Beschreibung eingeben"/>
+                    <p th:if="${#fields.hasErrors('beschreibung')}" class="errortext">Beschreibung darf nicht länger als 80 Zeichen haben</p>
                 </div>
                 <div class="form-group">
                     <label>Haltbar bis</label>
-                    <input type="date" th:field="*{haltbarbis}" th:errorclass="fehler" class="form-control"/>
-                    <p th:if="${#fields.hasErrors('haltbarbis')}">Fehler</p>
+                    <input type="date" th:field="*{haltbarbis}" th:errorclass="error" class="form-control"/>
+                    <p th:if="${#fields.hasErrors('haltbarbis')}" class="errortext">Datum muss in der Zukunft legen (kein abgelaufenen Produkte)</p>
                 </div>
                 <button type="submit" class="btn btn-primary">Braten speichern</button>
             </form>

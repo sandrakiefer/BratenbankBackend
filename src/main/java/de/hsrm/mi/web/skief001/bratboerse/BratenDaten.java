@@ -7,24 +7,26 @@ import javax.validation.constraints.Size;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.format.annotation.DateTimeFormat.ISO;
+
+import de.hsrm.mi.web.skief001.validation.GuteAdresse;
 
 public class BratenDaten {
     
-    @Size(min=3, max=80, message="Name muss mindestens {min} Zeichen und maximal {max} Zeichen haben")
+    @Size(min=3, max=80, message = "Name muss mindestens {min} Zeichen und maximal {max} Zeichen haben")
     @NotNull(message="Name muss angegeben werden")
     private String name;
 
-    @NotNull(message="Abholort muss angegeben werden")
+    @GuteAdresse
+    @NotNull(message = "Abholort muss angegeben werden")
     private String abholort;
 
-    @DateTimeFormat(iso=ISO.TIME)
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Future
-    @NotNull(message="Datum muss angegeben werden")
+    @NotNull(message = "Datum muss angegeben werden")
     private LocalDate haltbarbis;
 
-    @Size(max=80, message="Beschreibung darf nicht länger als {max} Zeichen haben")
-    @NotNull(message="Beschreibung muss angegeben werden")
+    @Size(min=1, max=80, message = "Beschreibung darf nicht länger als {max} Zeichen haben")
+    @NotNull(message = "Beschreibung muss angegeben werden")
     private String beschreibung;
 
     Logger logger = LoggerFactory.getLogger(BratenDaten.class);
@@ -54,15 +56,12 @@ public class BratenDaten {
         this.abholort = abholort;
     }
 
-    public String getHaltbarbis() {
-        try {
-            return haltbarbis.toString();
-        } catch (NullPointerException e) {}
-        return "";
+    public LocalDate getHaltbarbis() {
+        return haltbarbis;
     }
 
-    public void setHaltbarbis(String haltbarbis) {
-        this.haltbarbis = LocalDate.parse(haltbarbis);
+    public void setHaltbarbis(LocalDate haltbarbis) {
+        this.haltbarbis = haltbarbis;
     }
 
     public String getBeschreibung() {
