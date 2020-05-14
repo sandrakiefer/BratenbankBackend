@@ -7,37 +7,37 @@
         <title>Bratenbank</title>
     </head>
     <body>
-        <h1>Braten erfassen und bearbeiten</h1>
+        <h1 th:text="#{bearbeiten.ueberschrift}"/>
         <div class="col-xs-4">
             <form th:action="@{/angebot/neu}" th:method=POST th:object="${angebotform}">
                 <div class="form-group">
-                    <label>Anbieter</label>
+                    <label th:text="#{bearbeiten.anbieter}"/>
                     <input type="text" th:field="*{name}" th:errorclass="error" class="form-control" placeholder="Anbieter eingeben"/>
-                    <p th:if="${#fields.hasErrors('name')}" class="errortext">Name muss mindestens 3 Zeichen und maximal 80 Zeichen haben</p>
+                    <p th:if="${#fields.hasErrors('name')}" class="errortext" th:text="#{bearbeiten.name.error}"/>
                 </div>
                 <div class="form-group">
-                    <label>Abholort</label>
+                    <label th:text="#{bearbeiten.abholort}"/>
                     <input type="text" th:field="*{abholort}" th:errorclass="error" class="form-control" placeholder="Abholort eingeben"/>
-                    <p th:if="${#fields.hasErrors('abholort')}" class="errortext">ungültiger Abholort</p>
+                    <p th:if="${#fields.hasErrors('abholort')}" class="errortext" th:text="#{bearbeiten.abholort.error}"/>
                 </div>
                 <div class="form-group">
-                    <label>Beschreibung</label>
+                    <label th:text="#{bearbeiten.beschreibung}"/>
                     <input type="text" th:field="*{beschreibung}" th:errorclass="error" class="form-control" placeholder="Beschreibung eingeben"/>
-                    <p th:if="${#fields.hasErrors('beschreibung')}" class="errortext">Beschreibung darf nicht länger als 80 Zeichen haben</p>
+                    <p th:if="${#fields.hasErrors('beschreibung')}" class="errortext" th:text="#{bearbeiten.beschreibung.error}"/>
                 </div>
                 <div class="form-group">
-                    <label>Vegetarizität</label>
+                    <label th:text="#{bearbeiten.vegetarizitaet}"/>
                     <select th:field="*{vgrad}" th:errorclass="error" class="form-control">
                         <option th:each="sb: *{selectboxes}" th:value="${sb}" th:text="|${sb}%|"/>
                       </select>
-                      <p th:if="${#fields.hasErrors('vgrad')}" class="errortext">Vegetarizität muss angegeben werden</p>
+                      <p th:if="${#fields.hasErrors('vgrad')}" class="errortext" th:text="#{bearbeiten.vgrad.error}"/>
                 </div>
                 <div class="form-group">
-                    <label>Haltbar bis</label>
+                    <label th:text="#{bearbeiten.haltbarbis}"/>
                     <input type="date" th:field="*{haltbarbis}" th:errorclass="error" class="form-control"/>
-                    <p th:if="${#fields.hasErrors('haltbarbis')}" class="errortext">Datum muss in der Zukunft legen (kein abgelaufenen Produkte)</p>
+                    <p th:if="${#fields.hasErrors('haltbarbis')}" class="errortext" th:text="#{bearbeiten.haltbarbis.error}"/>
                 </div>
-                <button type="submit" class="btn btn-primary">Braten speichern</button>
+                <button type="submit" class="btn btn-primary" th:text="#{bearbeiten.speichern}"/>
             </form>
         </div>
     </body>

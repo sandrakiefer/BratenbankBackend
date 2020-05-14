@@ -6,16 +6,16 @@
         <title>Bratenbank</title>
     </head>
     <body>
-        <h1>Aktuelle Angebote</h1>
+        <h1 th:text="#{liste.ueberschrift}"/>
         <table th:if="${#lists.size(angebote)} > 0" class="table">
             <tr>
-                <th>Haltbar bis</th>
-                <th>Anbieter</th>
-                <th>Abholort</th>
-                <th>Beschreibung</th>
-                <th>Vegetarizität</th>
-                <th>löschen</th>
-                <th>bearbeiten</th>
+                <th th:text="#{liste.haltbarbis}"/>
+                <th th:text="#{liste.anbieter}"/>
+                <th th:text="#{liste.abholort}"/>
+                <th th:text="#{liste.beschreibung}"/>
+                <th th:text="#{liste.vegetarizitaet}"/>
+                <th th:text="#{liste.loeschen}"/>
+                <th th:text="#{liste.bearbeiten}"/>
             </tr>
             <tr th:each="ele,status : ${angebote}">
                 <td th:text="${ele.haltbarbis}"></td>
@@ -27,6 +27,6 @@
                 <td><a th:href="@{/angebot/}+${status.count}">[edit]</a></td>
             </tr>
         </table>
-        <a th:href="@{/angebot/neu}">Neuen Braten anbieten</a>
+        <a th:href="@{/angebot/neu}" th:text="#{liste.neu}"/>
     </body>
 </html>

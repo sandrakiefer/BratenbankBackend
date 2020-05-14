@@ -7,16 +7,16 @@
     </head>
     <body>
         <div class="col-xs-4">
-            <h1>Login</h1>
-            <p th:text="${hinweis}"></p>
+            <h1 th:text="#{login.ueberschrift}"/>
+            <p th:text="${hinweis}"/>
             <form action="" method=POST>
                 <div class="form-group">
-                    <label for="username">Username</label>
-                    <input type="text" class="form-control" name="username" placeholder="Unsername eingeben"/>
+                    <label for="username" th:text="#{login.benutzername}"/>
+                    <input type="text" class="form-control" name="username" th:placeholder="#{login.benutzername.eingabe}"/>
                 </div>
                 <div class="form-group">
-                    <label for="password">Passwort</label>
-                    <input type="text" class="form-control" name="password" placeholder="Passwort eingeben"/>
+                    <label for="password" th:text="#{login.passwort}"/>
+                    <input type="text" class="form-control" name="password" th:placeholder="#{login.passwort.eingabe}"/>
                 </div>
                 <button type="submit" class="btn btn-primary">OK</button>
             </form>
