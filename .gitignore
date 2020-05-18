@@ -30,3 +30,11 @@ out/
 
 ### VS Code ###
 .vscode/
+
+### Java ###
+*.class
+
+### Update ###
+bin/
+build/
+.gradle
