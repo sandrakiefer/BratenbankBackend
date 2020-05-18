@@ -1,4 +1,4 @@
-package de.hsrm.mi.web.skief001.bratboerse;
+package de.hsrm.mi.web.bratenbank.bratboerse;
 
 import java.time.LocalDate;
 import javax.validation.constraints.Future;
@@ -8,7 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import de.hsrm.mi.web.skief001.validation.GuteAdresse;
+import de.hsrm.mi.web.bratenbank.validation.GuteAdresse;
 
 public class BratenDaten {
     

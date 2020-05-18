@@ -1,4 +1,4 @@
-package de.hsrm.mi.web.skief001.validation;
+package de.hsrm.mi.web.bratenbank.validation;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;

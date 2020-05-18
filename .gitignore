@@ -31,10 +31,6 @@ out/
 ### VS Code ###
 .vscode/
 
-### Java ###
-*.class
-
 ### Update ###
+*.class
 bin/
-build/
-.gradle

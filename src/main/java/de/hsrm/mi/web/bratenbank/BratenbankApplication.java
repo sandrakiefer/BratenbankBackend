@@ -1,13 +1,13 @@
-package de.hsrm.mi.web.skief001;
+package de.hsrm.mi.web.bratenbank;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class DemoApplication {
+public class BratenbankApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(DemoApplication.class, args);
+		SpringApplication.run(BratenbankApplication.class, args);
 	}
 
 }

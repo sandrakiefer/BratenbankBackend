@@ -1,4 +1,4 @@
-package de.hsrm.mi.web.skief001.bratboerse;
+package de.hsrm.mi.web.bratenbank.bratboerse;
 
 import java.time.LocalDate;
 import java.util.ArrayList;

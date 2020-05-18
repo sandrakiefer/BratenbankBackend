@@ -1,4 +1,4 @@
-package de.hsrm.mi.web.skief001.international;
+package de.hsrm.mi.web.bratenbank.international;
 
 import java.util.Locale;
 import org.springframework.context.annotation.Bean;
