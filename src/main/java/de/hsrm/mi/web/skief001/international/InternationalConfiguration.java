@@ -12,7 +12,7 @@ import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 @Configuration
 public class InternationalConfiguration implements WebMvcConfigurer {
     @Bean
-    public LocaleResolver localResolver() {
+    public LocaleResolver localeResolver() {
         SessionLocaleResolver resolver = new SessionLocaleResolver();
         resolver.setDefaultLocale(Locale.GERMANY);
         return resolver;
