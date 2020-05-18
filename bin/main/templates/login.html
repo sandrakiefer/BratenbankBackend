@@ -21,10 +21,12 @@
                 <div class="form-group">
                     <label th:text="#{login.sprache}"/>
                     <select>
-                        <option><a th:href="@{?sprache=de}" th:text="#{liste.option1}"/></option>
-                        <option><a th:href="@{?sprache=en}" th:text="#{liste.option2}"/></option>
+                        <option th:href="@{?sprache=de}" th:text="#{liste.option1}"/>
+                        <option th:href="@{?sprache=en}" th:text="#{liste.option2}"/>
                     </select>
                 </div>
+                <a th:href="@{?sprache=de}" th:text="#{liste.option1}"/>
+                <a th:href="@{?sprache=en}" th:text="#{liste.option2}"/></br>
                 <button type="submit" class="btn btn-primary">OK</button>
             </form>
         </div>

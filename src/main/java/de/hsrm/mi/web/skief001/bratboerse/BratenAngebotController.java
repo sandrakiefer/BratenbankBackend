@@ -19,10 +19,10 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 public class BratenAngebotController {
 
     Logger logger = LoggerFactory.getLogger(BratenAngebotController.class);
-    ArrayList<BratenDaten> angebote = new ArrayList<BratenDaten>();
     
     @ModelAttribute("angebote")
     public void initListe(Model m) {
+        ArrayList<BratenDaten> angebote = new ArrayList<BratenDaten>();
         angebote.add(new BratenDaten("Jöndhard", "Vollradisroda", LocalDate.of(2020, 5, 6), "leckerer Grünkohlbraten", 50));
         angebote.add(new BratenDaten("Friedfert", "Arensch", LocalDate.of(2020, 5, 31), "Palatschinken aus Öl", 0));
         angebote.add(new BratenDaten("Joghurta", "Diedelingen", LocalDate.of(2020, 5, 7), "frischer Gummibärbraten", 25));
@@ -41,7 +41,7 @@ public class BratenAngebotController {
     }
 
     @PostMapping("/angebot/neu")
-    public String postFrom(Model m, @Valid @ModelAttribute("angebotform") BratenDaten angebotform, BindingResult bratendatenError) {
+    public String postFrom(Model m, @ModelAttribute("angebote") ArrayList<BratenDaten> angebote, @Valid @ModelAttribute("angebotform") BratenDaten angebotform, BindingResult bratendatenError) {
         if (bratendatenError.hasErrors()) {
             return "angebote/bearbeiten";
         }
@@ -50,13 +50,13 @@ public class BratenAngebotController {
     }
 
     @GetMapping("/angebot/{id}/del")
-    public String delete(@PathVariable int id) {
+    public String delete(@ModelAttribute("angebote") ArrayList<BratenDaten> angebote, @PathVariable int id) {
         angebote.remove(id-1);
         return "redirect:/angebot";
     }
 
     @GetMapping("/angebot/{id}")
-    public String edit(Model m, @PathVariable int id) {
+    public String edit(Model m, @ModelAttribute("angebote") ArrayList<BratenDaten> angebote, @PathVariable int id) {
         m.addAttribute("angebotform", angebote.get(id-1));
         angebote.remove(id-1);
         return "angebote/bearbeiten";
