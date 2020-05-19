@@ -1,23 +1,25 @@
 package de.hsrm.mi.web.bratenbank.benutzer;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Version;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
 @Entity
 public class Benutzer {
     
-    @NotNull
+    @NotEmpty
+    @Column(unique=true)
     private String loginname;
 
-    @NotNull
     @Size(min=3)
+    @NotEmpty
     private String passwort;
 
-    @NotNull
+    @NotEmpty
     private String vollname;
 
     private boolean nutzungsbedingungenok;
