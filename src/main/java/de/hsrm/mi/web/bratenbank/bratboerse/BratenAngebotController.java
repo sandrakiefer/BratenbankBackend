@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 @Controller
 @SessionAttributes(names = {"angebote"})
 public class BratenAngebotController {
-
+    
     Logger logger = LoggerFactory.getLogger(BratenAngebotController.class);
     
     @ModelAttribute("angebote")
