@@ -40,13 +40,13 @@ public class BratenAngebotController {
         return "angebote/bearbeiten";
     }
 
-    @PostMapping("/angebot/neu")
+    @PostMapping("/angebot")
     public String postFrom(Model m, @ModelAttribute("angebote") ArrayList<BratenDaten> angebote, @Valid @ModelAttribute("angebotform") BratenDaten angebotform, BindingResult bratendatenError) {
         if (bratendatenError.hasErrors()) {
             return "angebote/bearbeiten";
         }
         angebote.add(angebotform);
-        return "redirect:/angebot";
+        return "angebote/liste";
     }
 
     @GetMapping("/angebot/{id}/del")

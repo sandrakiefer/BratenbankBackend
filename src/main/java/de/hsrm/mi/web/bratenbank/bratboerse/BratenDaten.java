@@ -1,7 +1,7 @@
 package de.hsrm.mi.web.bratenbank.bratboerse;
 
 import java.time.LocalDate;
-import javax.validation.constraints.Future;
+import javax.validation.constraints.FutureOrPresent;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import org.slf4j.Logger;
@@ -20,9 +20,9 @@ public class BratenDaten {
     @NotNull(message = "Abholort muss angegeben werden")
     private String abholort;
 
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    @Future
     @NotNull(message = "Datum muss angegeben werden")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @FutureOrPresent
     private LocalDate haltbarbis;
 
     @Size(min=1, max=80, message = "Beschreibung darf nicht länger als {max} Zeichen haben")
@@ -92,7 +92,7 @@ public class BratenDaten {
 
     @Override
     public String toString() {
-        return String.format("Name: '%s'; Abholort: '%s'; HaltbarBis: '%s', Beschreibung: '%s'", name, abholort, haltbarbis.toString(), beschreibung);
+        return String.format("Name: '%s'; Abholort: '%s'; HaltbarBis: '%s', Beschreibung: '%s'", name, abholort, haltbarbis, beschreibung);
     }
 
 }
