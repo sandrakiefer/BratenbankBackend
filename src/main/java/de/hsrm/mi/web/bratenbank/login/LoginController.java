@@ -17,7 +17,7 @@ public class LoginController {
     Logger logger = LoggerFactory.getLogger(LoginController.class);
 
     @GetMapping("/login")
-    public String login_get() {
+    public static String login_get() {
         return "login";
     }
 

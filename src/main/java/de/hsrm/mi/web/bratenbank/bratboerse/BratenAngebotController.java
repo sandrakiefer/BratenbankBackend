@@ -41,7 +41,7 @@ public class BratenAngebotController {
     }
 
     @PostMapping("/angebot")
-    public String postFrom(Model m, @ModelAttribute("angebote") ArrayList<BratenDaten> angebote, @Valid @ModelAttribute("angebotform") BratenDaten angebotform, BindingResult bratendatenError) {
+    public String postForm(Model m, @ModelAttribute("angebote") ArrayList<BratenDaten> angebote, @Valid @ModelAttribute("angebotform") BratenDaten angebotform, BindingResult bratendatenError) {
         if (bratendatenError.hasErrors()) {
             return "angebote/bearbeiten";
         }
