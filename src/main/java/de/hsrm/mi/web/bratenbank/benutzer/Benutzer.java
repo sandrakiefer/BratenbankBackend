@@ -1,12 +1,17 @@
 package de.hsrm.mi.web.bratenbank.benutzer;
 
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Version;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
+
+import de.hsrm.mi.web.bratenbank.bratrepo.Braten;
 
 @Entity
 public class Benutzer {
@@ -23,6 +28,9 @@ public class Benutzer {
     private String vollname;
 
     private boolean nutzungsbedingungenok;
+
+    @OneToMany(mappedBy = "anbieter")
+    private List<Braten> angebote = new ArrayList<Braten>();
 
     @Id
     @GeneratedValue
@@ -61,6 +69,10 @@ public class Benutzer {
 
     public void setNutzungsbedingungenok(boolean nutzungsbedingungenok) {
         this.nutzungsbedingungenok = nutzungsbedingungenok;
+    }
+
+    public List<Braten> getAngebote() {
+        return angebote;
     }
 
     @Override
