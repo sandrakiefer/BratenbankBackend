@@ -8,10 +8,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import de.hsrm.mi.web.bratenbank.benutzer.BenutzerService;
 
 @Controller
+@SessionAttributes(names = {"loggedinusername"})
 public class LoginController {
     @Autowired BenutzerService benutzerservice;
     Logger logger = LoggerFactory.getLogger(LoginController.class);
@@ -24,6 +26,7 @@ public class LoginController {
     @PostMapping("/login")
     public String login_post(Model m, @RequestParam String username, @RequestParam String password) {
         if(benutzerservice.pruefeLogin(username, password)) {
+            m.addAttribute("loggedinusername", username);
             return "redirect:/angebot";
         } else {
             m.addAttribute("hinweis", String.format("Hinweis: Das korrekte Passwort für %s ist %s, nicht %s!", username, benutzerservice.ermittlePasswort(username), password));
