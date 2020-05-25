@@ -33,7 +33,7 @@ public class BenutzerController {
         } 
         try {
             benutzerservice.registriereBenutzer(benutzer);
-            return "redirect:/login";
+            return "login";
         } catch (BenutzernameSchonVergeben e) {
             benutzer.setLoginname("");
             return "benutzerui/benutzerregistrierung";

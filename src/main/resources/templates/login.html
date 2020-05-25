@@ -9,7 +9,7 @@
         <div class="col-xs-4">
             <h1 th:text="#{login.ueberschrift}"/>
             <p th:text="${hinweis}"/>
-            <form action="" method=POST>
+            <form th:action="@{/login}" th:method=POST>
                 <div class="form-group">
                     <label for="username" th:text="#{login.benutzername}"/>
                     <input type="text" class="form-control" name="username" th:placeholder="#{login.benutzername.eingabe}"/>
