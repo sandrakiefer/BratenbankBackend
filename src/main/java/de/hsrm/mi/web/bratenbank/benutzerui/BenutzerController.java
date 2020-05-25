@@ -1,4 +1,4 @@
-package de.hsrm.mi.web.bratenbank.benutzer.benutzerui;
+package de.hsrm.mi.web.bratenbank.benutzerui;
 
 import javax.validation.Valid;
 
