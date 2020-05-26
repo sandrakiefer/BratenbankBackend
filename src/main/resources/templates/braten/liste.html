@@ -19,14 +19,14 @@
             </tr>
             <tr th:each="ele,status : ${angebote}">
                 <td th:text="${ele.haltbarbis}"></td>
-                <td th:text="${ele.name}"></td>
+                <td th:text="${ele.anbieter.vollname}"></td>
                 <td th:text="${ele.abholort}"></td>
                 <td th:text="${ele.beschreibung}"></td>
                 <td th:text="|${ele.vgrad}%|"></td>
-                <td><a th:href="@{/angebot/}+${status.count}+@{/del}">[del]</a></td>
-                <td><a th:href="@{/angebot/}+${status.count}">[edit]</a></td>
+                <td><a th:href="@{/braten/angebot/}+${ele.id}+@{/del}">[del]</a></td>
+                <td><a th:href="@{/braten/angebot/}+${ele.id}">[edit]</a></td>
             </tr>
         </table>
-        <a th:href="@{/angebot/neu}" th:text="#{liste.neu}"/>
+        <a th:href="@{/braten/angebot/neu}" th:text="#{liste.neu}"/>
     </body>
 </html>

@@ -9,12 +9,7 @@
     <body>
         <h1 th:text="#{bearbeiten.ueberschrift}"/>
         <div class="col-xs-4">
-            <form th:action="@{/angebot}" th:method=POST th:object="${angebotform}">
-                <div class="form-group">
-                    <label th:text="#{bearbeiten.anbieter}"/>
-                    <input type="text" th:field="*{name}" th:errorclass="error" class="form-control" placeholder="Anbieter eingeben"/>
-                    <p th:if="${#fields.hasErrors('name')}" class="errortext" th:text="#{bearbeiten.name.error}"/>
-                </div>
+            <form th:action="@{/braten/angebot/neu}" th:method="POST" th:object="${angebotform}">
                 <div class="form-group">
                     <label th:text="#{bearbeiten.abholort}"/>
                     <input type="text" th:field="*{abholort}" th:errorclass="error" class="form-control" placeholder="Abholort eingeben"/>
@@ -37,6 +32,8 @@
                     <input type="date" th:field="*{haltbarbis}" th:errorclass="error" class="form-control"/>
                     <p th:if="${#fields.hasErrors('haltbarbis')}" class="errortext" th:text="#{bearbeiten.haltbarbis.error}"/>
                 </div>
+                <input type="hidden" th:field="*{id}" class="form-control"/>
+                <input type="hidden" th:field="*{version}" class="form-control"/>
                 <button type="submit" class="btn btn-primary" th:text="#{bearbeiten.speichern}"/>
             </form>
         </div>

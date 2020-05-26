@@ -33,8 +33,10 @@ public class BratServiceImpl implements BratenService {
     @Transactional
     @Override
     public Braten editBraten(String loginname, Braten braten) {
-        benutzerrepo.findByLoginname(loginname).getAngebote().add(braten);
         braten.setAnbieter(benutzerrepo.findByLoginname(loginname));
+        try {
+            benutzerrepo.findByLoginname(loginname).getAngebote().add(braten);
+        } catch (NullPointerException e) { }
         try {
             return bratenrepo.save(braten);
         } catch (OptimisticLockException e) {
