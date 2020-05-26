@@ -33,11 +33,13 @@ public class BratServiceImpl implements BratenService {
     @Transactional
     @Override
     public Braten editBraten(String loginname, Braten braten) {
-        braten.setAnbieter(benutzerrepo.findByLoginname(loginname));
         try {
-            benutzerrepo.findByLoginname(loginname).getAngebote().add(braten);
-        } catch (NullPointerException e) { }
-        try {
+            braten.setAnbieter(benutzerrepo.findByLoginname(loginname));
+            try {
+                benutzerrepo.findByLoginname(loginname).getAngebote().add(braten);
+            // TODO: kann man das so machen?
+            } catch (NullPointerException e) { }
+            
             return bratenrepo.save(braten);
         } catch (OptimisticLockException e) {
             throw new BratenServiceException();
