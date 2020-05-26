@@ -27,7 +27,11 @@ public class LoginController {
     public String login_post(Model m, @RequestParam String username, @RequestParam String password) {
         if(benutzerservice.pruefeLogin(username, password)) {
             m.addAttribute("loggedinusername", username);
-            return "redirect:/angebot";
+            if (username.contains("alt")) {
+                return "redirect:/angebot";
+            } else {
+                return "redirect:/braten/angebot";
+            }
         } else {
             m.addAttribute("hinweis", String.format("Hinweis: Das korrekte Passwort für %s ist %s, nicht %s!", username, benutzerservice.ermittlePasswort(username), password));
             return "login";
