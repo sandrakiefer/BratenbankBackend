@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import de.hsrm.mi.web.bratenbank.benutzer.Benutzer;
 import de.hsrm.mi.web.bratenbank.benutzer.BenutzerRepository;
 import de.hsrm.mi.web.bratenbank.bratrepo.Braten;
 import de.hsrm.mi.web.bratenbank.bratrepo.BratenRepository;
@@ -34,12 +35,12 @@ public class BratServiceImpl implements BratenService {
     @Override
     public Braten editBraten(String loginname, Braten braten) {
         try {
-            braten.setAnbieter(benutzerrepo.findByLoginname(loginname));
-            try {
-                benutzerrepo.findByLoginname(loginname).getAngebote().add(braten);
-            // TODO: kann man das so machen?
-            } catch (NullPointerException e) { }
-            
+            Benutzer b = benutzerrepo.findByLoginname(loginname);
+            if (b == null) {
+                throw new BratenServiceException();
+            }
+            braten.setAnbieter(b);
+            b.getAngebote().add(braten);
             return bratenrepo.save(braten);
         } catch (OptimisticLockException e) {
             throw new BratenServiceException();

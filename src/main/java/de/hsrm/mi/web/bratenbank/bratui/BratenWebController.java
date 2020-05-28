@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import de.hsrm.mi.web.bratenbank.bratboerse.BratenDaten;
 import de.hsrm.mi.web.bratenbank.bratrepo.Braten;
@@ -21,6 +22,7 @@ import de.hsrm.mi.web.bratenbank.bratservice.BratenServiceException;
 
 @Controller
 @RequestMapping("/braten")
+@SessionAttributes("loggedinusername")
 public class BratenWebController {
     
     @Autowired BratenService bratenservice;
@@ -39,10 +41,11 @@ public class BratenWebController {
     }
 
     @PostMapping("/angebot/neu")
-    public String postForm(Model m, @Valid @ModelAttribute("angebotform") Braten angebotform, BindingResult bratendatenError, @ModelAttribute("loggedinusername") String username) {
+    public String postForm(Model m, @Valid @ModelAttribute("angebotform") Braten angebotform, BindingResult bratendatenError) {
         if (bratendatenError.hasErrors()) {
             return "braten/bearbeiten";
         }
+        String username = (String) m.getAttribute("loggedinusername");
         try {
             bratenservice.editBraten(username, angebotform);
         } catch (BratenServiceException e) {
@@ -60,7 +63,7 @@ public class BratenWebController {
     @GetMapping("/angebot/{id}")
     public String edit(Model m, @ModelAttribute("angebote") ArrayList<BratenDaten> angebote, @PathVariable int id) {
         if (bratenservice.sucheBratenMitId(id).isPresent()) {
-            m.addAttribute("angebotform", bratenservice.sucheBratenMitId(id));
+            m.addAttribute("angebotform", bratenservice.sucheBratenMitId(id).get());
             return "braten/bearbeiten";
         } else {
             return "redirect:/braten/angebot";
