@@ -9,6 +9,9 @@ import javax.persistence.Version;
 import javax.validation.constraints.FutureOrPresent;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import org.springframework.format.annotation.DateTimeFormat;
 
 import de.hsrm.mi.web.bratenbank.benutzer.Benutzer;
@@ -30,6 +33,7 @@ public class Braten {
     @NotNull(message = "Beschreibung muss angegeben werden")
     private String beschreibung;
 
+    @JsonIgnore
     private int[] selectboxes = {0, 25, 50, 75, 100};
 
     @NotNull(message = "Vegetarizität muss angegeben werden")
