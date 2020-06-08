@@ -12,6 +12,10 @@ import javax.persistence.Version;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
+
 import de.hsrm.mi.web.bratenbank.bratrepo.Braten;
 
 @Entity
@@ -21,6 +25,7 @@ public class Benutzer {
     @Column(unique=true)
     private String loginname;
 
+    @JsonProperty(access = Access.WRITE_ONLY)
     @Size(min=3)
     @NotEmpty
     private String passwort;
@@ -30,13 +35,16 @@ public class Benutzer {
 
     private boolean nutzungsbedingungenok;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "anbieter")
     private List<Braten> angebote = new ArrayList<Braten>();
 
+    @JsonIgnore
     @Id
     @GeneratedValue
     private long id;
 
+    @JsonIgnore
     @Version
     private long version;
 
