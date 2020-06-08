@@ -1,0 +1,192 @@
+POST http://localhost:8080/api/benutzer
+Content-Type: application/json
+
+{
+  "vollname":  "Alfred Appel",
+  "loginname": "alap",
+  "passwort":  "aaa",
+  "nutzungsbedingungenok": "true"
+}
+
+###
+
+GET http://localhost:8080/api/benutzer/alap
+
+###
+
+POST http://localhost:8080/api/benutzer
+Content-Type: application/json
+
+{
+  "vollname":  "Berta Broozle",
+  "loginname": "bebro",
+  "passwort":  "hallo",
+  "nutzungsbedingungenok": "true"
+}
+
+###
+
+GET http://localhost:8080/api/benutzer/bebro
+
+###
+
+POST http://localhost:8080/api/benutzer
+Content-Type: application/json
+
+{
+  "vollname":  "Charles Chnell",
+  "loginname": "chch",
+  "passwort":  "achchch",
+  "nutzungsbedingungenok": "true"
+}
+
+###
+
+GET http://localhost:8080/api/benutzer/chch
+
+###
+
+POST http://localhost:8080/api/benutzer
+Content-Type: application/json
+
+{
+  "vollname":  "Dora Doidel",
+  "loginname": "dodo",
+  "passwort":  "doing123",
+  "nutzungsbedingungenok": "true"
+}
+
+###
+
+GET http://localhost:8080/api/benutzer/dodo
+
+###
+
+POST http://localhost:8080/api/benutzer
+Content-Type: application/json
+
+{
+  "vollname":  "Egon Elektro",
+  "loginname": "egel",
+  "passwort":  "eeelepfand",
+  "nutzungsbedingungenok": "true"
+}
+
+###
+
+GET http://localhost:8080/api/benutzer/egel
+
+###
+
+POST http://localhost:8080/api/benutzer
+Content-Type: application/json
+
+{
+  "vollname":  "Friedfert von Senkel",
+  "loginname": "friese",
+  "passwort":  "f1234",
+  "nutzungsbedingungenok": "true"
+}
+
+###
+
+GET http://localhost:8080/api/benutzer/friese
+
+###
+
+POST http://localhost:8080/api/benutzer
+Content-Type: application/json
+
+{
+  "vollname":  "Glogomir",
+  "loginname": "glogo",
+  "passwort":  "brrrr-pfft",
+  "nutzungsbedingungenok": "true"
+}
+
+###
+
+GET http://localhost:8080/api/benutzer/glogo
+
+###
+
+POST http://localhost:8080/api/benutzer
+Content-Type: application/json
+
+{
+  "vollname":  "Heliodor Heinzelmann",
+  "loginname": "hehe",
+  "passwort":  "wer-ich?",
+  "nutzungsbedingungenok": "true"
+}
+
+###
+
+GET http://localhost:8080/api/benutzer/hehe
+
+###
+
+POST http://localhost:8080/api/benutzer
+Content-Type: application/json
+
+{
+  "vollname":  "Isidora Insulata",
+  "loginname": "isi",
+  "passwort":  "rider",
+  "nutzungsbedingungenok": "true"
+}
+
+###
+
+GET http://localhost:8080/api/benutzer/isi
+
+###
+
+POST http://localhost:8080/api/benutzer
+Content-Type: application/json
+
+{
+  "vollname":  "Joendhard Biffel",
+  "loginname": "joebi",
+  "passwort":  "aasdfoiebn",
+  "nutzungsbedingungenok": "true"
+}
+
+###
+
+GET http://localhost:8080/api/benutzer/joebi
+
+###
+
+POST http://localhost:8080/api/benutzer
+Content-Type: application/json
+
+{
+  "vollname":  "Joghurta Biffel",
+  "loginname": "jogi",
+  "passwort":  "taucha",
+  "nutzungsbedingungenok": "true"
+}
+
+###
+
+GET http://localhost:8080/api/benutzer/jogi
+
+###
+
+POST http://localhost:8080/api/benutzer
+Content-Type: application/json
+
+{
+  "vollname":  "Marizzibel",
+  "loginname": "mari",
+  "passwort":  "huepfen",
+  "nutzungsbedingungenok": "true"
+}
+
+###
+
+GET http://localhost:8080/api/benutzer/mari
+
+###
+

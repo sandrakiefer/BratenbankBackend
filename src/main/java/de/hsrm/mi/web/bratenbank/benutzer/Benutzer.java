@@ -76,6 +76,14 @@ public class Benutzer {
         return angebote;
     }
 
+    public long getId() {
+        return id;
+    }
+
+    public long getVersion() {
+        return version;
+    }
+
     @Override
     public String toString() {
         return "Benutzer [loginname=" + loginname + ", nutzungsbedingungenok=" + nutzungsbedingungenok + ", passwort="
