@@ -23,6 +23,7 @@ import de.hsrm.mi.web.bratenbank.benutzer.Benutzer;
 import de.hsrm.mi.web.bratenbank.benutzer.BenutzerRepository;
 import de.hsrm.mi.web.bratenbank.benutzer.BenutzerService;
 import de.hsrm.mi.web.bratenbank.benutzerapi.BenutzerRestApi;
+import de.hsrm.mi.web.bratenbank.bratrepo.BratenRepository;
 
 
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
@@ -46,6 +47,9 @@ class Web_Ueb07_A2_BenutzerRestApi {
 
 	@Autowired
 	BenutzerRepository benutzerrepo;
+
+	@Autowired
+	BratenRepository bratenrepo;
 
 	@Autowired
 	BenutzerRestApi benutzerrestapi;
@@ -78,6 +82,9 @@ class Web_Ueb07_A2_BenutzerRestApi {
 
 	@BeforeEach
 	public void init() {
+		System.out.println("init #anazhl bratenrepo " + bratenrepo.count());
+		bratenrepo.deleteAll();
+		System.out.println("init #anazhl benutzerrepo " + benutzerrepo.count());
 		benutzerrepo.deleteAll();
 	}
 
