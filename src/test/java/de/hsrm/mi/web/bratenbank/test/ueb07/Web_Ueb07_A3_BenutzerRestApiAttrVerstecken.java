@@ -20,6 +20,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
+import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.web.servlet.MockMvc;
 
 import de.hsrm.mi.web.bratenbank.benutzer.Benutzer;
@@ -28,9 +29,38 @@ import de.hsrm.mi.web.bratenbank.benutzer.BenutzerService;
 import de.hsrm.mi.web.bratenbank.benutzerapi.BenutzerRestApi;
 import de.hsrm.mi.web.bratenbank.bratrepo.BratenRepository;
 
+/*
+ * Bitte führen Sie den Test auf der Kommandozeile mit
+ * 
+ *   ./gradlew clean test
+ * 
+ * aus. Stellen Sie sicher, dass die Datei 
+ * 
+ *   src/test/properties/application.properties
+ * 
+ * aus dem Test-Zip in Ihrem Projekt ist. Diese zweite application.properties
+ * stellt sicher, dass gegen die "in-memory"-Konfiguration der H2-Datenbank
+ * getestet wird, die bei jedem Anwendungsstart leer ist. Keine Reste aus
+ * früheren Läufen in der DB zu haben ist zum Testen hilfreich. Dies
+ * betrifft *nicht* Ihre src/java/resources/application.properties, in der
+ * Sie Ihre Datenbank zum Entwickeln vielleicht anders konfiguriert haben.
+ * 
+ * Wenn der VSCode-Testrunner Ihnen (insb. datenbankbezogene) Fehler liefert,
+ * kann das daran hängen, dass die Test-application.properties nicht korrekt
+ * berücksichtigt wird. Testen Sie daher zunächst über das o.g. Kommando.
+ * Falls Sie den VSCode Testrunner verwenden wollen, können Sie das tun, indem
+ * Sie in Ihrer src/java/resources/application.properties die H2-JDBC-URL
+ * auf "in-memory"-Betrieb umstellen (also 
+ * 
+ *     spring.datasource.url=jdbc:h2:mem:bratenbank
+ * 
+ * statt ...h2:~/bratenbank.
+ */ 
+
 
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 @AutoConfigureMockMvc
+@DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_EACH_TEST_METHOD)
 class Web_Ueb07_A3_BenutzerRestApiAttrVerstecken {
 	private static final String TESTLOGINNAME = "alap";
 	private static final String TESTLOGINPASSWORT = "aaa";
@@ -48,13 +78,13 @@ class Web_Ueb07_A3_BenutzerRestApiAttrVerstecken {
 	BenutzerService benutzerservice;
 
 	@Autowired
-	BratenRepository bratenrepo;
-
-	@Autowired
 	BenutzerRepository benutzerrepo;
 
 	@Autowired
 	BenutzerRestApi benutzerrestapi;
+
+	@Autowired
+	BratenRepository bratenrepo;
 
 	private static String TESTLOGINJSON;
 
@@ -84,9 +114,7 @@ class Web_Ueb07_A3_BenutzerRestApiAttrVerstecken {
 
 	@BeforeEach
 	public void init() {
-		System.out.println("init #anazhl bratenrepo " + bratenrepo.count());
 		bratenrepo.deleteAll();
-		System.out.println("init #anazhl benutzerrepo " + benutzerrepo.count());
 		benutzerrepo.deleteAll();
 	}
 
