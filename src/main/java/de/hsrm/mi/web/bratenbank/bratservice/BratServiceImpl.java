@@ -45,9 +45,10 @@ public class BratServiceImpl implements BratenService {
             }
             braten.setAnbieter(b);
             b.getAngebote().add(braten);
-            BratenMessage msg = new BratenMessage("change", braten);
+            Braten newbraten = bratenrepo.save(braten);
+            BratenMessage msg = new BratenMessage("change", newbraten);
             broker.convertAndSend("/topic/braten", msg);
-            return bratenrepo.save(braten);
+            return newbraten;
         } catch (OptimisticLockException e) {
             throw new BratenServiceException();
         }
