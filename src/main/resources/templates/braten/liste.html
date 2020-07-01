@@ -28,5 +28,8 @@
             </tr>
         </table>
         <a th:href="@{/braten/angebot/neu}" th:text="#{liste.neu}"/>
+        <form th:action="@{/logout}" th:method="POST">
+            <input type="submit" value="logout"/>
+        </form>
     </body>
 </html>
