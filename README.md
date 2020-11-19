@@ -16,7 +16,6 @@ Die Anwendung läuft dann zu Testzwecken auf ihrem Localhost unter Port 9090 (au
 * **/benutzer** Registierung von Benutzern
 * **/login** Login von Benutzer und Weiterleitung auf die Übersichtsseite der Angebote
 * **/braten/angebot** Hier können neue Braten anleget,  bearbeitet oder gelöscht werden
-* 
 
 ## Projektbeschreibung
 > In der aktuellen Situation ist gegenseitige Unterstützung besonders wichtig, unabhängig davon ist die Vermeidung von Verschwendung ein laufendes Anliegen. 
