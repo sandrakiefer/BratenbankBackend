@@ -23,3 +23,6 @@ Die Anwendung läuft dann zu Testzwecken auf ihrem Localhost unter Port 9090 (au
 
 Die Bratenbank ist eine Plattform, auf der Benutzer übrig gebliebenen Braten anbieten, und andere Benutzer danach suchen können. <br>
 Dieses Repository beinhaltet das Backend, welches sich um die Datenhaltung in der Datenbanken kümmert, die Programmlogik bereitstellt und eine einfache REST-Schnitstelle zur Verfügung stellt (Verwendung im Frontend).
+
+## Demonstrationsvideo
+Ein kurzes Demonstrationsvideo finden Sie unter **demovideo.mp4** im Repository oder unter [Link zu YouTube](https://youtu.be/N4_L-YbJTVo)
